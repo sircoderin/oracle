@@ -22,32 +22,9 @@ sol_storage! {
 
 #[public]
 impl Oracle {
-    pub fn calculate_average(&mut self) {
-        let numbers: Vec<U256> = vec![
-            U256::from(1111),
-            U256::from(2222),
-            U256::from(3333),
-            U256::from(4444),
-            U256::from(5555),
-            U256::from(6666),
-            U256::from(7777),
-            U256::from(8888),
-            U256::from(9999),
-            U256::from(1111),
-            U256::from(1111),
-            U256::from(2222),
-            U256::from(3333),
-            U256::from(4444),
-            U256::from(5555),
-            U256::from(6666),
-            U256::from(7777),
-            U256::from(8888),
-            U256::from(9999),
-            U256::from(1111),
-        ];
-
-        let sum: U256 = numbers.iter().sum();
-        let average: U256 = sum / U256::from(numbers.len());
+    pub fn calculate_average(&mut self, vec: Vec<U256>) {
+        let sum: U256 = vec.iter().sum();
+        let average: U256 = sum / U256::from(vec.len());
 
         self.averages.insert(U256::from(block::timestamp()), average);
     }
