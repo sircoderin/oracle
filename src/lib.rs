@@ -22,7 +22,7 @@ sol_storage! {
 
 #[public]
 impl Oracle {
-    pub fn calculate_average(&mut self, vec: [U256; 1000]) {
+    pub fn calculate_average(&mut self, vec: Vec<U256>) {
         let sum: U256 = vec.iter().sum();
         let average: U256 = sum / U256::from(vec.len());
 
